@@ -5,16 +5,51 @@
 
 Console.Clear();
 
-Console.Write ("Введите число: ");
-int a = int.Parse (Console.ReadLine ());
-Console.Write (" И показатель степени в которую нужно возвести это число: ");
-int b = int.Parse (Console.ReadLine ());
+// Console.Write ("Введите число: ");
+// int a = int.Parse (Console.ReadLine ());
+// Console.Write (" И показатель степени в которую нужно возвести это число: ");
+// int b = int.Parse (Console.ReadLine ());
 
-Console.WriteLine ($"{a}^{b} = {GetExp (a, b)}");
+// Console.WriteLine ($"{a}^{b} = {GetExp (a, b)}");
 
-int GetExp (int number, int exp) {
+int GetExpPos (int number, int exp) {
     int prod = 1;
     for (int i = 1; i <= exp; i++)
         prod *= number;
     return prod;
 }
+
+// int GetExpNeg (int number, int exp) {
+//     int prod = 1;
+//     for (int i = -1; i >= exp; i--)
+//         prod /= number;
+//     return prod;
+// }
+
+void Input () {
+    Console.Write ("Введите число: ");
+    int a = int.Parse (Console.ReadLine ());
+    Console.Write (" И показатель степени в которую нужно возвести это число: ");
+    int b = int.Parse (Console.ReadLine ());
+
+    if (b == 0) {
+        Console.WriteLine ($"{a}^{b} = 1");
+        return;
+    }
+
+    if (a == 0) {
+        Console.WriteLine ("Вы ввели не корректное число");
+        Input();
+        return;
+    }
+    if (b > 0) {
+        Console.WriteLine ($"{a}^{b} = {GetExpPos (a, b)}");
+        return;
+    }
+    if (b < 0) {
+        Console.WriteLine ($"{a}^{b} = {GetExpNeg (a, b)}");
+        return;
+    }
+}
+
+Input();
