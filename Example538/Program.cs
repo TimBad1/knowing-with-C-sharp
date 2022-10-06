@@ -2,9 +2,12 @@
 
 // [3 7 22 2 78] -> 76
 
-Console.Clear();
-Console.WriteLine("Введите элементы массива через пробел");
-string elements = Console.ReadLine();
+using System;
+using static System.Console;
+
+Clear();
+WriteLine("Введите элементы массива через пробел");
+string elements = ReadLine();
 int[] baseArray = GetArrayFromString(elements);
 
 int[] GetArrayFromString(string stringArray) {
@@ -28,5 +31,5 @@ int MaxMinSubstraction(int[] arr) {
     return max - min;
 }
 
-Console.WriteLine($"массив = [{String.Join(",", baseArray)}]");
-Console.WriteLine($"Разница между max и min = {MaxMinSubstraction(baseArray)}");
+WriteLine($"массив = [{String.Join(",", baseArray)}]");
+WriteLine($"Разница между max и min = {MaxMinSubstraction(baseArray)}");
